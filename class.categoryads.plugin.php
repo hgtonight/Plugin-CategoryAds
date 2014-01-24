@@ -52,6 +52,13 @@ class CategoryAds extends Gdn_Plugin {
     
     $Sender->SetData('Categories', $Categories);
     $Sender->SetData('CategoryAds', $CategoryAds);
+    
+    $Message = Gdn::Session()->Stash('CategoryAdsMessage');
+    if($Message) {
+      //inform
+      Gdn::Controller()->InformMessage($Message);
+    }
+    
     $Sender->Render($this->GetView('settings.php'));
   }
 
@@ -83,10 +90,10 @@ class CategoryAds extends Gdn_Plugin {
     else {
       if($Sender->Form->Save()) {
         if($Edit) {
-          $Sender->InformMessage(T('Category Ad updated successfully!'));
+          Gdn::Session()->Stash('CategoryAdsMessage', T('Category Ad updated successfully!'));
         }
         else {
-          $Sender->InformMessage(T('Category Ad added successfully!'));
+          Gdn::Session()->Stash('CategoryAdsMessage', T('Category Ad added successfully!'));
         }
         Redirect('/settings/categoryads');
       }
@@ -108,16 +115,9 @@ class CategoryAds extends Gdn_Plugin {
     $Sender->Permission('Garden.Settings.Manage');
 
     $Sender->SetData('Title', T('Delete Category Ad'));
-    if($Sender->Form->IsPostBack()) {
-      if($CategoryAdModel->Delete($AdID)) {
-        $Sender->Form->AddError(T('Unable to delete category ad!'));
-      }
-
-      if($Sender->Form->ErrorCount() == 0) {
-        Redirect('settings/categoryads');
-      }
-    }
-    $Sender->Render($this->GetView('delete.php'));
+    $CategoryAdModel->Delete($AdID);
+    Gdn::Session()->Stash('CategoryAdsMessage', T('Category Ad deleted successfully!'));
+    Redirect('settings/categoryads');
   }
 
   public function CategoriesController_Render_Before($Sender) {
