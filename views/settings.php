@@ -32,7 +32,7 @@ echo Wrap(Anchor(T('Add Category Ad'), 'settings/categoryads/add', array('class'
       $Row .= Wrap($CategoryAd->Name, 'td');
       $Row .= Wrap($CategoryAd->Body, 'td');
       $Row .= Wrap($CategoryAd->DisplayCount, 'td');
-      $Row .= Wrap(Anchor(T('Edit'), 'settings/categoryads/edit/' . $CategoryAd->CategoryAdID, array('class' => 'SmallButton')) . Anchor(T('Delete'), 'settings/categoryads/delete/' . $CategoryAd->CategoryAdID, array('class' => 'Danger Popup SmallButton')), 'td');
+      $Row .= Wrap(Anchor(T('Edit'), 'settings/categoryads/edit/' . $CategoryAd->CategoryAdID, array('class' => 'SmallButton')) . Anchor(T('Delete'), 'settings/categoryads/delete/' . $CategoryAd->CategoryAdID, array('class' => 'Danger PopConfirm SmallButton')), 'td');
       echo Wrap($Row, 'tr', array('id' => 'CategoryAdID_' . $CategoryAd->CategoryAdID, 'data-categoryadid' => $CategoryAd->CategoryAdID, 'class' => $Alt));
     }
     ?>
