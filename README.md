@@ -1,3 +1,5 @@
+Not Production Ready
+
 Category Ads
 ============
 A Vanilla Forums plugin that adds an ad unique to the current category to the side panel.
