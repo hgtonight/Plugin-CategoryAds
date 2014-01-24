@@ -30,6 +30,12 @@ $PluginInfo['CategoryAds'] = array(
 
 class CategoryAds extends Gdn_Plugin {
 
+  //Add a link to the dashboard menu
+	public function Base_GetAppSettingsMenuItems_Handler($Sender) {
+		$Menu = &$Sender->EventArguments['SideMenu'];
+		$Menu->AddLink('Add-ons', 'Category Ads', 'settings/categoryads', 'Garden.Settings.Manage');
+	}
+  
   // add a Category Ads page on the settings controller
   public function SettingsController_CategoryAds_Create($Sender) {
     // add the admin side menu
