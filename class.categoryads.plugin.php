@@ -41,8 +41,10 @@ class CategoryAds extends Gdn_Plugin {
     $Sender->Title($this->GetPluginName() . ' ' . T('Settings'));
 
     $CategoryAdModel = new CategoryAdModel();
-    $CategoryAds = $CategoryAdModel->Get();
-
+    $CategoryAds = $CategoryAdModel->Get('CategoryID');
+    $Categories = CategoryModel::Categories();
+    
+    $Sender->SetData('Categories', $Categories);
     $Sender->SetData('CategoryAds', $CategoryAds);
     $Sender->Render($this->GetView('settings.php'));
   }
