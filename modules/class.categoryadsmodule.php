@@ -14,10 +14,12 @@
 *	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 class CategoryAdsModule extends Gdn_Module {
-	private $_CategoryID;
+	private $_CategoryAdData;
   
 	public function __construct($CategoryID = -1) {
-		$this->_CategoryID = $CategoryID;
+    $CategoryAdModel = new CategoryAdModel();
+    
+		$this->_CategoryAdData = $CategoryAdModel->GetAd($CategoryID);
     parent::__construct('');
 	}
 
@@ -28,6 +30,14 @@ class CategoryAdsModule extends Gdn_Module {
 
 	// Required for module to render something
 	public function ToString() {
-		return "My sweet sweet ads for category id #: $this->_CategoryID!";
+    if($this->_CategoryAdData) {
+      $Ad = $this->_CategoryAdData;
+      $String = Wrap($Ad->Name, 'h1');
+      $String .= $Ad->Body;
+      echo Wrap($String, 'div', array('class' => 'Box BoxCategoryAd'));
+    }
+    else {
+      return '';
+    }
 	}
 }
