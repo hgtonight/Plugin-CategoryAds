@@ -8,8 +8,8 @@ $Categories = $this->Data('Categories');
 echo $this->Form->Open();
 echo $this->Form->Errors();
 
-echo Wrap(Wrap(T('Plugin.CategoryAds.Settings.Desc'), 'div'), 'div', array('class' => 'Wrap'));
-echo Wrap(Anchor(T('Plugin.CategoryAds.AddAd'), 'settings/categoryads/add', array('class' => 'SmallButton')), 'div', array('class' => 'Wrap'));
+echo Wrap(Wrap(T('Plugin.CategoryAds.Desc'), 'div'), 'div', array('class' => 'Wrap'));
+echo Wrap(Anchor(T('Add Category Ad'), 'settings/categoryads/add', array('class' => 'SmallButton')), 'div', array('class' => 'Wrap'));
 
 ?>
 <table id="Actions" class="AltRows">

@@ -1,5 +1,3 @@
-Not Production Ready
-
 Category Ads
 ============
 A Vanilla Forums plugin that adds an ad unique to the current category to the side panel.
@@ -10,4 +8,4 @@ Install
 =======
 1.	Drop the CategoryAds folder into your vanilla/plugins folder.
 2.	Enable the plugin in your dashboard
-3.	Profit!
+3.	Start adding ads!
