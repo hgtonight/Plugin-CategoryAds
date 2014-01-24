@@ -7,7 +7,7 @@ $Definition['Edit Category Ad'] = 'Edit Category Ad';
 $Definition['Delete Category Ad'] = 'Delete Category Ad';
 $Definition['Category Ad added succesfully!'] = 'Category Ad added succesfully!';
 $Definition['Category Ad updated successfully!'] = 'Category Ad updated succesfully!';
-$Definition['Unable to delete category ad!'] = 'Unable to delete category ad!';
+$Definition['Category Ad deleted successfully!'] = 'Category Ad deleted successfully!';
 $Definition['Are you sure you want to delete this category ad?'] = 'Are you sure you want to delete this category ad?';
 $Definition['Display Count'] = 'Display Count';
 
